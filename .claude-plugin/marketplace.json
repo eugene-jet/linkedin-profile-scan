@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linkedin-profile-scan",
+  "description": "A LinkedIn profile audit that ends in rewritten text rather than advice: twelve scored checks out of 100, then a drafted headline, About section, Experience bullets and Featured list ready to paste.",
+  "owner": {
+    "name": "Eugene Moroz",
+    "url": "https://github.com/eugene-jet"
+  },
+  "plugins": [
+    {
+      "name": "linkedin-profile-scan",
+      "description": "Score a LinkedIn profile out of 100 across twelve checks and hand back the rewritten text — three headline options, a redrafted About, reworked Experience bullets, a Featured list and content pillars.",
+      "source": "./",
+      "version": "1.0.0",
+      "category": "productivity",
+      "homepage": "https://github.com/eugene-jet/linkedin-profile-scan",
+      "tags": ["linkedin", "personal-brand", "career", "writing", "audit"]
+    }
+  ]
+}

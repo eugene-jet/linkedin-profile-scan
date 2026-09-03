@@ -1,0 +1,11 @@
+{
+  "name": "linkedin-profile-scan",
+  "description": "Score a LinkedIn profile out of 100 across twelve checks and hand back the rewritten text — three headline options, a redrafted About, reworked Experience bullets, a Featured list and content pillars.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Eugene Moroz",
+    "url": "https://github.com/eugene-jet"
+  },
+  "homepage": "https://github.com/eugene-jet/linkedin-profile-scan",
+  "license": "MIT"
+}
