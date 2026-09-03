@@ -1,0 +1,303 @@
+<!--
+  LinkedIn profile scan — report template.
+
+  Replace every SLOT marker (written as an HTML comment) with content, then publish as an artifact.
+  Delete this comment block before publishing.
+
+  Slots, and the markup each expects:
+
+  The five <h2> headings in the page body are English defaults. Translate them, and every
+  label in the slots below, into the language the reader is writing in — see "Which
+  language to write in" in SKILL.md.
+
+  TITLE    plain text — goes in <title> and the masthead, e.g. "Elena's LinkedIn profile — scan"
+  META     up to three lines, separated by <br> — profile URL, date, route used
+  SCORE    the overall grade out of 100, the number only, e.g. 63
+  BAND     one word — Weak | Developing | Good | Strong | Excellent
+  VERDICT  one or two sentences naming the single thing that costs the most
+  SECTIONS repeat: <div class="sec"><span class="sec-name">NAME</span>
+             <span class="sec-track"><span class="sec-fill TONE" style="width:GRADE%"></span></span>
+             <span class="sec-val"><b>GRADE / 100</b> · BAND</span></div>
+           GRADE is the section's 0–100 grade; the bar width is the same number as a %.
+           TONE is "" for 60–74, "good" for 75+, "warn" for 40–59, "crit" below 40
+  BANDS    the band legend, five rows, in this order and with these classes:
+             <div class="band weak"><span class="nm">Weak</span><span class="rg">0–39</span>
+               <span class="dsc">What that band means.</span></div>
+           then dev, then one with no tone class (Good), then strong, then exc.
+           Add "is-here" to the class list of the row matching the overall band — that row
+           gets a badge reading "here", whose text lives in .band.is-here .nm::after in the
+           CSS and is translated along with everything else.
+           Band names stay in English; the descriptions are translated.
+  WORKING  repeat: <li><b>Label.</b> Evidence.</li>
+  COSTING  repeat: <div class="fix"><span class="rank">01</span><h3>Title</h3>
+             <span class="gain">+N</span><p>Why, with evidence.</p></div>
+  REWRITES repeat: <div class="draft"><h3>Section</h3><p class="note">One line of why.</p>
+             <div class="text">The drafted replacement.</div></div>
+           For multiple options use several .text blocks, each preceded by
+             <span class="opt">Option 1</span>
+  PILLARS  repeat: <div class="pillar"><h4>Name</h4><p>What it covers.</p>
+             <p class="eg">Example: post title</p></div>
+  METHOD   paragraphs — which route was used, what was not visible, what is null
+-->
+<title><!--SLOT:TITLE--></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground: #eff2f3;
+    --surface: #ffffff;
+    --sunk: #f4f7f7;
+    --ink: #14201f;
+    --ink-2: #3a4746;
+    --muted: #64716f;
+    --line: #d5dddd;
+    --line-soft: #e5ebeb;
+    --accent: #10566e;
+    --accent-soft: #d9e7ed;
+    --good: #1f7a55;
+    --warn: #a87c00;
+    --crit: #b32749;
+    --shadow: 0 1px 2px rgba(20, 32, 31, .05), 0 10px 26px -18px rgba(20, 32, 31, .35);
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Public Sans', -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0d1214; --surface: #151d1f; --sunk: #1b2427;
+      --ink: #e7edec; --ink-2: #bac5c3; --muted: #8b9997;
+      --line: #29373a; --line-soft: #202b2e;
+      --accent: #6fb3ce; --accent-soft: #1c2e37;
+      --good: #3c956b; --warn: #b58c30; --crit: #d6647f;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px -20px rgba(0,0,0,.9);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0d1214; --surface: #151d1f; --sunk: #1b2427;
+    --ink: #e7edec; --ink-2: #bac5c3; --muted: #8b9997;
+    --line: #29373a; --line-soft: #202b2e;
+    --accent: #6fb3ce; --accent-soft: #1c2e37;
+    --good: #3c956b; --warn: #b58c30; --crit: #d6647f;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px -20px rgba(0,0,0,.9);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  h3 { font-family: var(--display); font-size: 18px; font-weight: 600; margin: 0; }
+  h4 { font-family: var(--display); font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+
+  /* masthead */
+
+  header { display: flex; flex-direction: column; gap: 26px; padding-bottom: 30px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; }
+  .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.9; text-align: right; }
+
+  .readout { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px 40px; }
+  .score { display: flex; align-items: baseline; gap: 10px; }
+  .score b {
+    font-family: var(--display);
+    font-size: clamp(60px, 12vw, 96px);
+    font-weight: 700;
+    line-height: .82;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .score span { font-family: var(--mono); font-size: 19px; color: var(--muted); }
+
+  .verdict { max-width: 48ch; display: flex; flex-direction: column; gap: 8px; padding-bottom: 4px; }
+  .verdict p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+
+  .pill {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 4px 12px; border: 1px solid currentColor; border-radius: 999px;
+    font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: .04em;
+    color: var(--muted);
+  }
+  .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .pill.good { color: var(--good); } .pill.warn { color: var(--warn); } .pill.crit { color: var(--crit); }
+
+  /* section bars */
+
+  .secs { display: flex; flex-direction: column; gap: 13px; }
+  .sec { display: grid; grid-template-columns: minmax(110px, 1fr) 3fr auto; align-items: center; gap: 8px 18px; }
+  .sec-name { font-weight: 600; font-size: 15px; }
+  .sec-track { position: relative; height: 11px; background: var(--sunk); border-radius: 3px; overflow: hidden; }
+  .sec-fill { position: absolute; inset: 0 auto 0 0; border-radius: 0 4px 4px 0; background: var(--accent); }
+  .sec-fill.good { background: var(--good); }
+  .sec-fill.warn { background: var(--warn); }
+  .sec-fill.crit { background: var(--crit); }
+  .sec-val { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .sec-val b { color: var(--ink); font-weight: 600; }
+
+  /* band legend */
+
+  .bands { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 9px; }
+  .band { display: grid; grid-template-columns: 92px 58px 1fr; align-items: baseline; gap: 4px 14px; font-size: 14.5px; color: var(--ink-2); }
+  .band .nm { font-weight: 600; color: var(--ink); }
+  .band .rg { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .band.is-here .nm::after {
+    content: "here"; margin-left: 8px; padding: 1px 7px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+    font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .band.weak .nm { color: var(--crit); }
+  .band.dev .nm { color: var(--warn); }
+  .band.strong .nm, .band.exc .nm { color: var(--good); }
+
+  /* working */
+
+  .working { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .working li { padding-left: 18px; position: relative; color: var(--ink-2); font-size: 15.5px; }
+  .working li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+  .working b { color: var(--ink); font-weight: 600; }
+
+  /* costing */
+
+  .fixes { display: flex; flex-direction: column; gap: 14px; }
+  .fix {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px 18px; align-items: start;
+    background: var(--surface); border: 1px solid var(--line-soft); border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0; padding: 16px 20px; box-shadow: var(--shadow);
+  }
+  .fix .rank { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--muted); padding-top: 4px; }
+  .fix .gain { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--good); white-space: nowrap; padding-top: 4px; }
+  .fix p { grid-column: 2 / 3; margin: 4px 0 0; color: var(--ink-2); font-size: 15px; max-width: 64ch; }
+
+  /* rewrites */
+
+  .drafts { display: flex; flex-direction: column; gap: 18px; }
+  .draft {
+    background: var(--surface); border: 1px solid var(--line-soft); border-radius: 6px;
+    padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
+  }
+  .draft .note { margin: 0; font-size: 14.5px; color: var(--muted); }
+  .draft .opt { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .draft .text {
+    background: var(--sunk); border-left: 2px solid var(--accent); border-radius: 0 4px 4px 0;
+    padding: 14px 16px; font-size: 15.5px; color: var(--ink); white-space: pre-wrap;
+  }
+  .draft .text em { color: var(--warn); font-style: normal; font-family: var(--mono); font-size: 13.5px; }
+
+  /* pillars */
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .pillar { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 6px; padding: 16px 18px; box-shadow: var(--shadow); }
+  .pillar p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+  .pillar .eg { margin-top: 8px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+
+  /* method */
+
+  footer { padding-top: 26px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+  footer p { margin: 0; max-width: 74ch; }
+
+  /* the meta block wraps below the title well before the mobile breakpoint,
+     and a right-aligned orphan line reads as a layout bug */
+  @media (max-width: 900px) {
+    .meta { text-align: left; }
+  }
+
+  @media (max-width: 620px) {
+    .sec { grid-template-columns: 1fr auto; }
+    .sec-track { grid-column: 1 / -1; order: 3; }
+    .band { grid-template-columns: 1fr auto; }
+    .band .dsc { grid-column: 1 / -1; }
+    .fix { grid-template-columns: auto minmax(0, 1fr); }
+    .fix .gain { grid-column: 2; padding-top: 0; }
+    .fix p { grid-column: 1 / -1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="page">
+
+  <header>
+    <div class="top">
+      <h1><!--SLOT:TITLE--></h1>
+      <div class="meta"><!--SLOT:META--></div>
+    </div>
+    <div class="readout">
+      <div class="score"><b><!--SLOT:SCORE--></b><span>/ 100</span></div>
+      <div class="verdict">
+        <span class="pill"><!--SLOT:BAND--></span>
+        <p><!--SLOT:VERDICT--></p>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Sections</h2>
+    <div class="secs"><!--SLOT:SECTIONS--></div>
+    <div class="bands"><!--SLOT:BANDS--></div>
+  </section>
+
+  <section>
+    <h2>What already works</h2>
+    <ul class="working"><!--SLOT:WORKING--></ul>
+  </section>
+
+  <section>
+    <h2>What costs the most</h2>
+    <div class="fixes"><!--SLOT:COSTING--></div>
+  </section>
+
+  <section>
+    <h2>Ready-to-paste text</h2>
+    <div class="drafts"><!--SLOT:REWRITES--></div>
+  </section>
+
+  <section>
+    <h2>Content pillars</h2>
+    <div class="pillars"><!--SLOT:PILLARS--></div>
+  </section>
+
+  <footer>
+    <!--SLOT:METHOD-->
+  </footer>
+
+</div>
