@@ -1,6 +1,6 @@
 {
   "name": "linkedin-profile-scan",
-  "description": "Score a LinkedIn profile out of 100 across twelve checks and hand back the rewritten text — three headline options, a redrafted About, reworked Experience bullets, a Featured list and content pillars.",
+  "description": "Score a LinkedIn profile out of 100 across fourteen checks and hand back the rewritten text — three headline options, a redrafted About, reworked Experience bullets, a Featured list, the recommendation requests to send, and content pillars.",
   "version": "1.1.0",
   "author": {
     "name": "Eugene Moroz",
