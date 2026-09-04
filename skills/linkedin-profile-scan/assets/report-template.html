@@ -177,6 +177,7 @@
   /* band legend */
 
   .bands { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 9px; }
+  .bands:empty { display: none; }
   .band { display: grid; grid-template-columns: 92px 58px 1fr; align-items: baseline; gap: 4px 14px; font-size: 14.5px; color: var(--ink-2); }
   .band .nm { font-weight: 600; color: var(--ink); }
   .band .rg { font-family: var(--mono); font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
