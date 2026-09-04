@@ -142,9 +142,16 @@ Ask for, in this order of value:
 
 1. A screenshot of the profile top — photo, banner, name, headline, About
 2. The Experience section, pasted as text or captured
-3. Featured — what is in it
-4. Three to five recent posts, pasted
-5. Follower and connection counts
+3. The Skills section — the top three especially, since those are what ranking uses
+4. Recommendations — how many, from whom, and when
+5. Featured — what is in it
+6. Three to five recent posts, pasted
+7. Follower and connection counts
+
+Items 3 and 4 are the ones people forget, because nothing on the profile page draws
+attention to them — they live behind their own detail pages. Ask for them explicitly
+rather than hoping they arrive, and remember that "no recommendations" is a real answer
+worth a 0, while "did not check" is `null`.
 
 Most people send the first two and stop. Score what arrived, mark the rest `null`, and
 say in the report which sections went unexamined. Then ask for the missing pieces once —

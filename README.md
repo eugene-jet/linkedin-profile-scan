@@ -111,15 +111,20 @@ reports the resulting blind spots honestly.
 | Whose profile | own or others' | own only | any |
 | Profile text | yes | yes | yes |
 | Featured | yes | partial | if captured |
+| Recommendations | yes | yes | if captured |
+| Skills, location, industry | yes | yes | if captured |
 | Photo and banner | yes | no | if captured |
 | Posts | yes | yes, complete | if captured |
 | Reactions and comments per post | yes | counts only | if captured |
 | Comments written elsewhere | yes | yes | rarely |
 | Setup needed | Chrome extension | you export a zip | nothing |
 
-**Live browser** is the richest and needs the Claude in Chrome extension, because
-LinkedIn does not serve profile content to a logged-out browser — it shows a signup wall
-instead. This is the route to use for your own profile.
+**Live browser** is the richest and needs Claude in Chrome — Anthropic's browser
+extension, which lets Claude read the page you are already signed in to. It has to be
+installed and connected before you start; this repository cannot install it for you, and
+if you do not have it, use the paste route instead, which needs nothing. The extension is
+required because LinkedIn does not serve profile content to a logged-out browser — it
+shows a signup wall instead. This is the route to use for your own profile.
 
 **Data export** is LinkedIn's own sanctioned download, requested under Settings → Data
 privacy → Get a copy of your data. No automation is involved at all. It arrives by email,

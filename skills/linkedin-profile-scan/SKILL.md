@@ -114,6 +114,11 @@ report split between chat and a page gets half-read.
 Title the artifact with the person's name and what it is, for example
 `Elena's LinkedIn profile — scan`. Give it a one-line description naming the score.
 
+If publishing an artifact is not available in the environment you are running in, do not
+abandon the page — fill the same template, write it to an HTML file, and tell the person
+the path and that they can open it in a browser. The report is the deliverable; the
+artifact is only the most convenient way to hand it over.
+
 If the person only wants the short version, give them the three highest-value fixes in
 chat and still publish the page — the drafted text is too long to be useful in a
 scrollback, and they will want it again next week.
