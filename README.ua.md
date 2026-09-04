@@ -1,5 +1,7 @@
 # LinkedIn profile scan
 
+[![plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Feugene-jet%2Flinkedin-profile-scan%2Fmain%2F.claude-plugin%2Fplugin.json&query=$.version&label=plugin&color=10566e)](https://github.com/eugene-jet/linkedin-profile-scan/blob/main/.claude-plugin/plugin.json)
+
 [English](README.md) · **Українська**
 
 Скіл для Claude, який робить аудит профілю LinkedIn і повертає готовий переписаний текст.
