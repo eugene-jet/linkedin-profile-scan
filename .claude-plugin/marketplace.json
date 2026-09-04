@@ -11,7 +11,7 @@
       "name": "linkedin-profile-scan",
       "description": "Score a LinkedIn profile out of 100 across twelve checks and hand back the rewritten text — three headline options, a redrafted About, reworked Experience bullets, a Featured list and content pillars.",
       "source": "./",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "productivity",
       "homepage": "https://github.com/eugene-jet/linkedin-profile-scan",
       "tags": ["linkedin", "personal-brand", "career", "writing", "audit"]

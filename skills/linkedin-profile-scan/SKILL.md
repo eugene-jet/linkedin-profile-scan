@@ -1,6 +1,6 @@
 ---
 name: linkedin-profile-scan
-description: Scan a LinkedIn profile and return a scored audit plus concrete rewritten text — headline options, a redrafted About, reworked Experience bullets, and what to put in Featured. Works on the person's own profile or on someone else's by URL. Use this skill whenever someone asks to review, audit, check, improve, rate or "scan" a LinkedIn profile, asks why their profile gets no views or no recruiter interest, asks how to write their LinkedIn headline or About section, wants feedback before a job search, or wants to help a mentee or colleague improve their profile — even if they do not say the word "audit" and even if they only paste a LinkedIn URL with "what do you think?". Also use it when someone asks what is wrong with their personal brand on LinkedIn.
+description: Scan a LinkedIn profile and return a scored audit plus concrete rewritten text — headline options, a redrafted About, reworked Experience bullets, what to put in Featured, and the recommendation requests to send. Works on the person's own profile or on someone else's by URL. Use this skill whenever someone asks to review, audit, check, improve, rate or "scan" a LinkedIn profile, asks why their profile gets no views or no recruiter interest, asks how to write their LinkedIn headline or About section, wants feedback before a job search, or wants to help a mentee or colleague improve their profile — even if they do not say the word "audit" and even if they only paste a LinkedIn URL with "what do you think?". Also use it when someone asks what is wrong with their personal brand on LinkedIn.
 ---
 
 # LinkedIn profile scan
@@ -38,18 +38,18 @@ volume, so do not build that.
 
 ## Step 2 — Score
 
-Read `references/profile-rubric.md` for the twelve metrics and their bands.
+Read `references/profile-rubric.md` for the fourteen metrics and their bands.
 
 | Section | Checks | What it asks |
 |---|---|---|
-| Profile | 5 | Does the profile say who this person is and prove it? |
+| Profile | 7 | Does the profile say who this person is, prove it, and get found? |
 | Content | 4 | Do they publish, and is it worth reading? |
 | Activity | 3 | Do they show up in other people's threads? |
 
 Each check scores 0–5. A section's grade, and the overall, are the share of available
 points earned, reported out of 100 — so a section with fewer checks still lands on the
 same 0–100 scale, and the bands in the rubric already sit on it. Report the overall as a
-single number out of 100; it is the weighted average across all twelve checks, so the
+single number out of 100; it is the weighted average across all fourteen checks, so the
 three section grades will not simply add up to it, which is expected.
 
 Two habits keep the score honest:
@@ -78,6 +78,10 @@ What "actual text" means:
   rewritten bullet by bullet, older ones given a targeted strengthening line. Never skip a
   role, and never invent an outcome for one too old to have a recorded number
 - **Featured** — a specific list of what to put there, drawn from what they actually have
+- **Recommendations** — the request messages to send, addressed to specific people already
+  visible in the profile. The recommendation itself is the one thing here nobody can draft
+  for them, so draft the ask instead
+- **Searchability** — the terms the profile is missing and the top three Skills to set
 
 Where a number would strengthen a line but you do not have it, leave a marked blank like
 `[N projects]` rather than inventing one. A fabricated metric in someone's professional

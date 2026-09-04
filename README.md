@@ -6,7 +6,7 @@ A Claude skill that audits a LinkedIn profile and hands back the rewritten text.
 
 Most profile advice stops at the diagnosis. You learn that your About section is weak,
 and then you still have to sit down and write a new one — which is the part you were
-avoiding in the first place. This skill scores the profile out of 100 across twelve
+avoiding in the first place. This skill scores the profile out of 100 across fourteen
 checks and then drafts the replacements: three headline options, a complete About section
 in your own voice, reworked Experience bullets for every role, a list of what belongs in
 Featured, and three content pillars with a posting cadence you can actually keep.
@@ -127,16 +127,16 @@ screenshots. A scan from pasted text is worth far more than no scan.
 
 ## How the scoring works
 
-Twelve checks, in three sections. Each check scores 0–5, and each section is then
+Fourteen checks, in three sections. Each check scores 0–5, and each section is then
 reported as the share of available points earned, out of 100.
 
 | Section | Checks | What it asks |
 |---|---|---|
-| Profile | 5 | Does the profile say who this person is, and prove it? |
+| Profile | 7 | Does the profile say who this person is, prove it, and get found? |
 | Content | 4 | Do they publish, and is it worth reading? |
 | Activity | 3 | Do they show up in other people's threads? |
 
-The overall grade is the weighted average across all twelve checks, so the three section
+The overall grade is the weighted average across all fourteen checks, so the three section
 grades will not add up to it — the same way subject grades on a report card do not sum to
 the GPA.
 
