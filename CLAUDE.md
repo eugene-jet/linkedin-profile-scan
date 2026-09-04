@@ -23,6 +23,14 @@ at the top of both READMEs is not a third copy — it reads `plugin.json` from `
 render time, so it cannot drift, but it does mean that file's path is load-bearing and
 renaming it would silently break the badge rather than fail a build.
 
+**The route visibility matrix** — which of the three input routes can see what — exists
+in `references/reading-a-profile.md` and again, condensed, in both READMEs. The reference
+is the source of truth. This one has already drifted once: adding the `recommendations`
+and `searchability` metrics put two new rows in the reference and left the READMEs a row
+short, so a reader comparing them saw two different answers to the same question. When a
+scored input is added, it needs a row in all three and a place in the Route 3 ask list,
+which is the only route where the data arrives because somebody was asked for it.
+
 **The two READMEs** are a full translation of each other, not a summary and a translation.
 A section added to one belongs in the other. The language switch at the top of each links
 to the other file by name.
