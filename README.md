@@ -1,6 +1,6 @@
 # LinkedIn profile scan
 
-**English** · [Українська](README.uk.md)
+**English** · [Українська](README.ua.md)
 
 A Claude skill that audits a LinkedIn profile and hands back the rewritten text.
 
