@@ -18,7 +18,10 @@ report whose legend disagrees with the rubric that produced it is worse than no 
 
 **The version** appears in both `.claude-plugin/plugin.json` and the plugin entry in
 `.claude-plugin/marketplace.json`. `claude plugin tag` refuses to tag a release when the
-two disagree, which is the intended safety net, but it only fires at release time.
+two disagree, which is the intended safety net, but it only fires at release time. The badge
+at the top of both READMEs is not a third copy — it reads `plugin.json` from `main` at
+render time, so it cannot drift, but it does mean that file's path is load-bearing and
+renaming it would silently break the badge rather than fail a build.
 
 **The two READMEs** are a full translation of each other, not a summary and a translation.
 A section added to one belongs in the other. The language switch at the top of each links
