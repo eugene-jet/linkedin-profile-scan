@@ -30,7 +30,7 @@ Everything lands on a single published page you can come back to next week.
 
 ## Requirements
 
-Claude Code, or claude.ai if you install the skill there instead.
+Claude Code.
 
 Nothing else is strictly required. The Claude in Chrome extension is needed only for the
 live-browser route described below; the other two routes work with Claude Code alone.
@@ -56,8 +56,15 @@ in a menu. Restart Claude Code afterwards so the skill loads.
 To update later:
 
 ```bash
+claude plugin marketplace update linkedin-profile-scan
+```
+
+```bash
 claude plugin update linkedin-profile-scan
 ```
+
+The first command refreshes this repository's copy of the marketplace; without it the
+second has nothing newer to install.
 
 ### By copying the skill directory
 
@@ -74,12 +81,6 @@ cp -r linkedin-profile-scan/skills/linkedin-profile-scan ~/.claude/skills/
 
 The skill is four plain files — a `SKILL.md`, two references and one HTML template — with
 no dependencies and nothing to build. Restart Claude Code and it will be available.
-
-### On claude.ai
-
-Zip the `skills/linkedin-profile-scan` directory so that `SKILL.md` sits at the root of
-the archive, then upload it as a skill in your Claude settings. Note that the live-browser
-route is not available there, so use the data export or the paste route.
 
 ## How to use it
 
