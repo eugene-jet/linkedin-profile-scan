@@ -8,6 +8,8 @@ are scorable and which come back `null`. Always record which route was used.
 | Whose profile | own or others' | own only | any |
 | Profile text | yes | yes | yes |
 | Featured | yes | partial | if captured |
+| Recommendations | yes | yes | if captured |
+| Skills, location, industry | yes | yes | if captured |
 | Photo & banner | yes | no | if captured |
 | Posts | yes | yes, complete | if captured |
 | Reactions & comments per post | yes | counts only | if captured |
@@ -35,6 +37,18 @@ Text extraction returns the headline, location, connection count and the activit
 but it **skips About and Featured**, which sit in a part of the DOM extractors treat as
 page furniture. Those two need screenshots: scroll to just below the header and capture.
 The same screenshots let you judge the photo and banner, which are scored.
+
+**Recommendations and Skills** each live on their own page as well, and both are scored:
+
+```
+https://www.linkedin.com/in/<slug>/details/recommendations/
+https://www.linkedin.com/in/<slug>/details/skills/
+```
+
+Read the recommendations for who wrote them and when, not only how many there are — a
+reciprocal pair written on the same day and a recommendation from a former manager are
+worth very different things. On the skills page only the top three matter for scoring;
+they are the only ones shown without expanding.
 
 **Experience** lives on its own page and is worth loading separately, because the profile
 itself only expands the current role:
@@ -108,7 +122,8 @@ Useful files in the archive:
 | `Shares.csv` | every post with date, text and link |
 | `Comments.csv` | every comment they wrote, with date and the thread |
 | `Reactions.csv` | what they reacted to |
-| `Skills.csv`, `Recommendations_*.csv` | supporting signals |
+| `Skills.csv` | the skills list, in the order set on the profile |
+| `Recommendations_*.csv` | recommendations received and given, with dates and authors |
 
 What the archive cannot give: the photo, the banner, Featured, and per-post reaction
 counts. Score those `null` unless the person also sends a screenshot of their profile
