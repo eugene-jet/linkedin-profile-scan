@@ -1,0 +1,71 @@
+name: Traffic history
+
+# GitHub keeps only a rolling 14-day traffic window and discards the rest. This
+# workflow snapshots it weekly into traffic-history.csv so adoption can be read
+# over months instead of a fortnight. It aggregates only the totals GitHub
+# already shows the repository's admins — it collects nothing from anyone's
+# machine and sends nothing anywhere.
+#
+# Setup: the traffic API needs Administration:read, which the built-in
+# GITHUB_TOKEN cannot be granted (there is no `administration` permission for
+# it). Create a repository secret named TRAFFIC_TOKEN holding a token that can
+# read this repo's traffic — a fine-grained PAT scoped to this repository with
+# "Administration: Read-only", or a classic PAT with the `repo` scope. Without
+# it the traffic step fails; the commit step still uses the built-in token.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays, 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: traffic-history
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append a weekly traffic row
+        env:
+          GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+        run: |
+          set -euo pipefail
+          repo="${{ github.repository }}"
+
+          clones="$(gh api "repos/$repo/traffic/clones")"
+          views="$(gh api "repos/$repo/traffic/views")"
+
+          cutoff="$(date -u -d '7 days ago' +%Y-%m-%dT00:00:00Z)"
+          week_ending="$(date -u +%Y-%m-%d)"
+
+          sum7() { jq --arg c "$cutoff" "[.\"$1\"[] | select(.timestamp >= \$c) | .count] | add // 0"; }
+          clones_7d="$(printf '%s' "$clones" | sum7 clones)"
+          views_7d="$(printf '%s' "$views" | sum7 views)"
+
+          clone_uniques_14d="$(printf '%s' "$clones" | jq '.uniques')"
+          view_uniques_14d="$(printf '%s' "$views" | jq '.uniques')"
+
+          file="traffic-history.csv"
+          if [ ! -f "$file" ]; then
+            echo "week_ending,clones_7d,views_7d,clone_uniques_14d,view_uniques_14d" > "$file"
+          fi
+          echo "$week_ending,$clones_7d,$views_7d,$clone_uniques_14d,$view_uniques_14d" >> "$file"
+
+      - name: Commit the snapshot if it changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- traffic-history.csv; then
+            echo "No traffic change to record."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add traffic-history.csv
+          git commit -m "chore: snapshot repo traffic [skip ci]"
+          git push
