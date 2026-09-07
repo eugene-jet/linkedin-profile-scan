@@ -142,6 +142,10 @@ screenshots. A scan from pasted text is worth far more than no scan.
 Fourteen checks, in three sections. Each check scores 0–5, and each section is then
 reported as the share of available points earned, out of 100.
 
+Every one of the fourteen is shown individually in the report, each with its 0–5 and the
+evidence behind it, so you see the whole breakdown rather than only the three section
+totals — the number stops being a verdict you have to take on trust.
+
 | Section | Checks | What it asks |
 |---|---|---|
 | Profile | 7 | Does the profile say who this person is, prove it, and get found? |
