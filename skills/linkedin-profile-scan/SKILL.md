@@ -76,7 +76,11 @@ What "actual text" means:
 - **About** — one complete draft, in their voice, using only facts visible in their profile
 - **Experience** — every role in the profile, checked and addressed; recent roles
   rewritten bullet by bullet, older ones given a targeted strengthening line. Never skip a
-  role, and never invent an outcome for one too old to have a recorded number
+  role, and never invent an outcome for one too old to have a recorded number. Pair the
+  original text with the rewrite for every role — show the current bullets, then the
+  replacement, so the reader sees the contrast rather than a rewrite they have to trust
+  blind. In the report this is a before block and an after block under each role; the
+  before block carries the bullets exactly as they stand on the profile
 - **Featured** — a specific list of what to put there, drawn from what they actually have
 - **Recommendations** — the request messages to send, addressed to specific people already
   visible in the profile. The recommendation itself is the one thing here nobody can draft
