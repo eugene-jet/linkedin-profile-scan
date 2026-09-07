@@ -28,6 +28,25 @@
            gets a badge reading "here", whose text lives in .band.is-here .nm::after in the
            CSS and is translated along with everything else.
            Band names stay in English; the descriptions are translated.
+  SCORECARD every metric, grouped by section, each with its raw 0–5 score and one line of
+           evidence. This is where the three section bars above get explained — the reader
+           sees which individual checks dragged a section down. Repeat a group, then a row
+           per metric inside it:
+             <div class="cgroup"><div class="cgroup-h"><span class="cg-name">SECTION</span>
+               <span class="cg-val">GRADE / 100 · BAND</span></div>
+               <div class="check TONE"><span class="ck-name">Label <code>metric_key</code></span>
+                 <span class="ck-dots"><span class="dot on"></span> …five .dot spans…
+                   <b>N/5</b></span>
+                 <span class="ck-ev">The evidence — a quote, a count or a date.</span></div>
+               …more .check rows…</div>
+           Five .dot spans per row; give the first N of them class "on" for a score of N.
+           TONE on the .check is "" for a 3, "good" for 4–5, "warn" for a 2, "crit" for 0–1.
+           A metric scored null (no data — never conflate with 0) is a null row: class
+             "check null", and in place of .ck-dots a <span class="ck-null">— not checked</span>,
+             with the reason it could not be read in .ck-ev. When a whole section is null its
+             .cg-val reads "null · not loaded" rather than a grade.
+           Metric keys in <code> stay verbatim; the labels and the evidence are translated
+             like the rest of the page.
   WORKING  repeat: <li><b>Label.</b> Evidence.</li>
   COSTING  repeat: <div class="fix"><span class="rank">01</span><h3>Title</h3>
              <span class="gain">+N</span><p>Why, with evidence.</p></div>
@@ -190,6 +209,34 @@
   .band.dev .nm { color: var(--warn); }
   .band.strong .nm, .band.exc .nm { color: var(--good); }
 
+  /* scorecard — every metric, its 0–5 and the evidence behind it */
+
+  .checks { display: flex; flex-direction: column; gap: 24px; }
+  .cgroup { display: flex; flex-direction: column; }
+  .cgroup-h {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding-bottom: 9px; margin-bottom: 3px; border-bottom: 1px solid var(--line);
+  }
+  .cgroup-h .cg-name { font-weight: 600; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+  .cgroup-h .cg-val { font-family: var(--mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .check {
+    display: grid; grid-template-columns: minmax(130px, 190px) auto minmax(0, 1fr);
+    align-items: start; gap: 6px 18px; padding: 10px 0; border-bottom: 1px solid var(--line-soft);
+  }
+  .check:last-child { border-bottom: 0; }
+  .ck-name { font-size: 15px; color: var(--ink); font-weight: 500; }
+  .ck-name code { display: block; font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--muted); }
+  .ck-dots { display: flex; align-items: center; gap: 5px; padding-top: 5px; }
+  .ck-dots .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+  .ck-dots .dot.on { background: var(--accent); }
+  .ck-dots b { margin-left: 4px; font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .check.good .dot.on { background: var(--good); }  .check.good .ck-dots b { color: var(--good); }
+  .check.warn .dot.on { background: var(--warn); }  .check.warn .ck-dots b { color: var(--warn); }
+  .check.crit .dot.on { background: var(--crit); }  .check.crit .ck-dots b { color: var(--crit); }
+  .ck-ev { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+  .ck-null { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 4px; white-space: nowrap; }
+  .check.null .ck-name, .check.null .ck-ev { color: var(--muted); }
+
   /* working */
 
   .working { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -247,6 +294,8 @@
     .sec-track { grid-column: 1 / -1; order: 3; }
     .band { grid-template-columns: 1fr auto; }
     .band .dsc { grid-column: 1 / -1; }
+    .check { grid-template-columns: 1fr auto; }
+    .ck-ev { grid-column: 1 / -1; }
     .fix { grid-template-columns: auto minmax(0, 1fr); }
     .fix .gain { grid-column: 2; padding-top: 0; }
     .fix p { grid-column: 1 / -1; }
@@ -275,6 +324,11 @@
     <h2>Sections</h2>
     <div class="secs"><!--SLOT:SECTIONS--></div>
     <div class="bands"><!--SLOT:BANDS--></div>
+  </section>
+
+  <section>
+    <h2>Every metric</h2>
+    <div class="checks"><!--SLOT:SCORECARD--></div>
   </section>
 
   <section>

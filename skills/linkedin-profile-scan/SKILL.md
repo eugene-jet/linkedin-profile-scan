@@ -111,6 +111,14 @@ with `<!--SLOT:*-->` markers; replace each marker with the corresponding content
 publish. Everything the person needs to act on should be on that one page, because a
 report split between chat and a page gets half-read.
 
+The `SCORECARD` slot shows the person every criterion the profile was judged on: all
+fourteen checks, grouped by section, each with its raw 0–5 score and the one line of
+evidence behind it. You already produced both in Step 2 — the scorecard is where they land
+on the page, so a reader who sees "Profile 54" can tell which checks earned it. Keep the
+metric keys (`headline_clarity` and the rest) verbatim and translate the labels and
+evidence like the rest of the page, and show a metric you could not read as a null row
+rather than a zero, exactly as the `null`-versus-0 rule in Step 2 requires.
+
 Title the artifact with the person's name and what it is, for example
 `Elena's LinkedIn profile — scan`. Give it a one-line description naming the score.
 
