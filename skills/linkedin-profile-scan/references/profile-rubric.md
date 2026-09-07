@@ -317,14 +317,19 @@ The artifact page follows `assets/report-template.html`. Content, in order:
 1. **Score** out of 100 with its band, the three section grades (each also out of 100),
    and the band legend directly beneath them — the reader meets the word "Developing" at
    the section bars, so that is where it has to be explained
-2. **What is working** — two or three things, briefly, with evidence
-3. **What is costing them** — ranked by points recoverable per unit of effort. Rewriting
+2. **Every metric** — all fourteen checks, grouped by section, each with its raw 0–5 score
+   and the one line of evidence behind it. This is what makes the three section bars legible:
+   a reader who sees "Profile 54" learns here which of the seven Profile checks earned it.
+   The same scores and quotes are produced during scoring anyway — this is where they live
+   on the page. A metric with no data is shown as a null row, not a zero
+3. **What is working** — two or three things, briefly, with evidence
+4. **What is costing them** — ranked by points recoverable per unit of effort. Rewriting
    existing text almost always outranks new activity, because those points are already
    sitting on the page waiting to be claimed
-4. **The rewrites** — headline options, About draft, Experience bullets, Featured list,
+5. **The rewrites** — headline options, About draft, Experience bullets, Featured list,
    the recommendation requests to send, and the terms and Skills to set
-5. **Content pillars and a cadence** they can actually keep
-6. **Method note** — which route was used, what was not visible, what is therefore `null`
+6. **Content pillars and a cadence** they can actually keep
+7. **Method note** — which route was used, what was not visible, what is therefore `null`
 
 Keep the ranking honest about effort. "Post four times a month" and "rewrite your About
 this evening" are not comparable asks, and a list that presents them as equals gets

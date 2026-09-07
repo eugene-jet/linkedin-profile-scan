@@ -19,15 +19,19 @@ Everything lands on a single published page you can come back to next week.
 
 1. **A score out of 100** with its band, broken into three section grades — Profile,
    Content and Activity — each with a bar and an explanation of what its band means.
-2. **What already works**, with the evidence, so you do not accidentally undo it.
-3. **What costs the most**, ranked by points recoverable per unit of effort. Rewriting
+2. **Every metric**, so the score is never a black box. All fourteen checks, grouped by
+   section, each with its own 0–5 and the line of evidence behind it — this is where a
+   "Profile 54" becomes legible, because you can see which of the seven Profile checks
+   earned it. A check that could not be read is shown as `null`, not as a zero.
+3. **What already works**, with the evidence, so you do not accidentally undo it.
+4. **What costs the most**, ranked by points recoverable per unit of effort. Rewriting
    text you already have almost always outranks starting to post, because those points
    are sitting on the page waiting to be claimed.
-4. **The rewrites.** This is the deliverable. Ready to paste, drawn only from facts
+5. **The rewrites.** This is the deliverable. Ready to paste, drawn only from facts
    visible on the profile — where a number would strengthen a line and the number is not
    known, the draft leaves a marked blank like `[N projects]` rather than inventing one.
-5. **Content pillars and a cadence.**
-6. **A method note** saying which route was used, what could not be seen, and which
+6. **Content pillars and a cadence.**
+7. **A method note** saying which route was used, what could not be seen, and which
    metrics are therefore `null` rather than zero.
 
 ## Requirements
