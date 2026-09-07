@@ -30,6 +30,8 @@ Everything lands on a single published page you can come back to next week.
 5. **The rewrites.** This is the deliverable. Ready to paste, drawn only from facts
    visible on the profile — where a number would strengthen a line and the number is not
    known, the draft leaves a marked blank like `[N projects]` rather than inventing one.
+   For Experience the report shows each current bullet next to its rewrite, so the
+   duty-to-outcome change is visible and you can repeat it on the roles it only sketched.
 6. **Content pillars and a cadence.**
 7. **A method note** saying which route was used, what could not be seen, and which
    metrics are therefore `null` rather than zero.
