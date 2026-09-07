@@ -60,12 +60,12 @@ jobs:
       - name: Commit the snapshot if it changed
         run: |
           set -euo pipefail
-          if git diff --quiet -- traffic-history.csv; then
+                    git add traffic-history.csv
+          if git diff --cached --quiet; then
             echo "No traffic change to record."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add traffic-history.csv
           git commit -m "chore: snapshot repo traffic [skip ci]"
           git push
