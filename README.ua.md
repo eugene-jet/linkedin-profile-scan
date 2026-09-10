@@ -1,6 +1,8 @@
 # LinkedIn profile scan
 
 [![plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Feugene-jet%2Flinkedin-profile-scan%2Fmain%2F.claude-plugin%2Fplugin.json&query=$.version&label=plugin&color=10566e)](https://github.com/eugene-jet/linkedin-profile-scan/blob/main/.claude-plugin/plugin.json)
+[![MIT license](https://img.shields.io/badge/license-MIT-10566e)](LICENSE)
+[![live sample report](https://img.shields.io/badge/live-sample%20report-10566e)](https://eugene-jet.github.io/linkedin-profile-scan/)
 
 [English](README.md) · **Українська**
 
@@ -14,6 +16,12 @@
 ритмом публікацій, який реально витримати.
 
 Усе це складається в одну опубліковану сторінку, до якої можна повернутися будь-коли.
+
+[![Приклад сканування профілю LinkedIn — оцінка зі 100, три розділові бали та розбивка за метриками з доказами](docs/preview.png)](https://eugene-jet.github.io/linkedin-profile-scan/)
+
+**[▶ Відкрити повний приклад звіту](https://eugene-jet.github.io/linkedin-profile-scan/)** — повне
+сканування вигаданого профілю з усіма розділами, які створює скіл: оцінка та її бенди, усі
+чотирнадцять метрик із доказами, ранжовані виправлення й готовий до вставлення переписаний текст.
 
 ## Що містить звіт
 
