@@ -1,6 +1,8 @@
 # LinkedIn profile scan
 
 [![plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Feugene-jet%2Flinkedin-profile-scan%2Fmain%2F.claude-plugin%2Fplugin.json&query=$.version&label=plugin&color=10566e)](https://github.com/eugene-jet/linkedin-profile-scan/blob/main/.claude-plugin/plugin.json)
+[![MIT license](https://img.shields.io/badge/license-MIT-10566e)](LICENSE)
+[![live sample report](https://img.shields.io/badge/live-sample%20report-10566e)](https://eugene-jet.github.io/linkedin-profile-scan/)
 
 **English** · [Українська](README.ua.md)
 
@@ -14,6 +16,12 @@ in your own voice, reworked Experience bullets for every role, a list of what be
 Featured, and three content pillars with a posting cadence you can actually keep.
 
 Everything lands on a single published page you can come back to next week.
+
+[![A sample LinkedIn profile scan — the score out of 100, the three section grades, and the metric breakdown with its evidence](docs/preview.png)](https://eugene-jet.github.io/linkedin-profile-scan/)
+
+**[▶ Open the full sample report](https://eugene-jet.github.io/linkedin-profile-scan/)** — a complete
+scan of a fictional profile, showing every section this skill produces: the score and its bands,
+all fourteen metrics with their evidence, the ranked fixes, and the ready-to-paste rewrites.
 
 ## What the report contains
 
